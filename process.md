@@ -35,8 +35,8 @@ Install zabbix-ruby-client with chef installed
     crontab -e to add scheduled tasks:
     
     * * * * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload"
-0 * * * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t hourly.yml"
-0 0 1 * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t monthly.yml"
+    0 * * * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t hourly.yml"
+    0 0 1 * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t monthly.yml"
 
     Modify related yml files like "minutely.yml" if needed
     
