@@ -1,4 +1,5 @@
 zabbix-client-installation-with-chef
 ====================================
->>>>>>> 909bf6538381a6f7b89e9b8606d2f896bf1bca36
+
+This is a reminder so that I won't forget how to install zabbix-ruby-client and zabbix-sender in a box with chef installed.
 
