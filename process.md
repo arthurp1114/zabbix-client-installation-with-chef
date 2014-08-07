@@ -52,7 +52,7 @@ A minutely.yml example
     - name: network
       args: [ eth0 ]
     - name: postgres
-      args: ["-U username -h localhost -p 5432","dbname"]
+      args: ["-U username -h localhost -p 5432","dbname"] --> must have a .pgsql in $HOME with the password info 
     - name: redis
       args: ["/usr/bin/redis-cli -h localhost -p 6379"]
     - name: nginx
