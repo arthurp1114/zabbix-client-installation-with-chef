@@ -10,6 +10,21 @@ Install zabbix-ruby-client with chef installed
 
     cd zabbix (if not in the directory already)
     zrc show --> will show that zabbix-sender is needed
+    
+    sudo apt-get install zabbix-sender --> Got an error msg saying that there is no zabbix-sender package found
+    
+    cd /etc/apt/sources.list.d/ and add zabbix.list file, put the following 2 lines in the file
+    
+    deb http://repo.zabbix.com/zabbix/2.2/ubuntu precise main
+    deb-src http://repo.zabbix.com/zabbix/2.2/ubuntu precise main
+    
+    sudo apt-get update
+    
+    sudo apt-get install zabbix-sender --> Got an GPG error saying that the public key is not available: NO_PUBKEY xxxxxxxxxx
+    
+    sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys xxxxxxxxx
 
+    sudo apt-get install zabbix-sender --> will succeed this time
+    
 
 
