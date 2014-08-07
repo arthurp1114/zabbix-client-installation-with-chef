@@ -6,7 +6,7 @@ Install zabbix-ruby-client with chef installed
     cd zabbix
     bundle -- to show necessary dependancies and will prompt for zabbix-sender
     vi config.yml --> change "host" to the hostname and "host" under "zabbix" to the hostname of the zabbix server (noc.vpn in this case)
-    vi monthly.yml --> modify "name: disk" --> "args" to the "/dev/xxx" that needs to be monitored and modify the network part to the interface(s) needs to be monitored.
+    vi minutely.yml --> modify "name: disk" --> "args" to the "/dev/xxx" that needs to be monitored and modify the network part to the interface(s) needs to be monitored.
 
     cd zabbix (if not in the directory already)
     zrc show --> will show that zabbix-sender is needed
@@ -39,6 +39,25 @@ Install zabbix-ruby-client with chef installed
     0 0 1 * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t monthly.yml"
 
     Modify related yml files like "minutely.yml" if needed
+    
+A minutely.yml example
+======================
+
+    ---
+    - name: load
+    - name: memory
+    - name: cpu
+    - name: disk
+      args: [ vda1, / ]
+    - name: network
+      args: [ eth0 ]
+    - name: postgres
+      args: ["-U username -h localhost -p 5432","dbname"]
+    - name: redis
+      args: ["/usr/bin/redis-cli -h localhost -p 6379"]
+    - name: nginx
+    - name: mysql
+      args: "-uusername -ppassword -hhostname" --> hostname could be "localhost"
     
 
 
