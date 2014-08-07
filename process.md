@@ -26,5 +26,19 @@ Install zabbix-ruby-client with chef installed
 
     sudo apt-get install zabbix-sender --> will succeed this time
     
+    make sure you are in zabbix directory and make a "data" directory
+    
+    mk data
+    
+    zrc update -t monthly.yml
+    
+    crontab -e to add scheduled tasks:
+    
+    * * * * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload"
+0 * * * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t hourly.yml"
+0 0 1 * * /bin/bash -l -c "cd $HOME/zabbix && /opt/chef/embedded/bin/bundle exec /opt/chef/embedded/bin/zrc upload -t monthly.yml"
+
+    Modify related yml files like "minutely.yml" if needed
+    
 
 
